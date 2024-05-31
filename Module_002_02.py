@@ -14,9 +14,19 @@ task_str_first_column_width = 40  # String length for comment in homework tasks 
 def e_print(message, result_value):  # Extended print with output format
     print(f'{' ': >{TASK_STR_LEFT_INDENT}}{message: <{task_str_first_column_width}}{result_value}\n')
 
-first = input('Input first number: ')
-second = input('Input second number: ')
-third = input('Input third number: ')
+def get_number(message):
+    x = input(f'{message} or hit Enter to exit: ')
+    while not x.isnumeric():
+        if x == '':
+            print('We will be glad to see you later!')
+            exit(0)
+        print('It\'s NOT an integer value please try again!')
+        x = input(f'{message} or hit Enter to exit: ')
+    return x
+
+first = get_number('Input first number')
+second = get_number('Input second number')
+third = get_number('Input third number')
 
 if first == second == third:
     print('\nTask 1 case found: Throw "3" if all digits are equal.')
@@ -31,10 +41,6 @@ else:
 
 
 ##################################### End of the homework code #####################################
-
-
-
-
 
 """
 ****************************************************************************************************
